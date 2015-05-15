@@ -1,10 +1,11 @@
-FROM ubuntu:trusty
+FROM cantireinnovations/centos-java8
 
-MAINTAINER Wurstmeister 
+MAINTAINER Canadian Tire Innovations 
 
 ENV KAFKA_VERSION="0.8.2.1" SCALA_VERSION="2.10"
 
-RUN apt-get update && apt-get install -y unzip openjdk-6-jdk wget curl git docker.io jq
+RUN yum update
+RUN yum install -y curl tar wget
 
 ADD download-kafka.sh /tmp/download-kafka.sh
 RUN /tmp/download-kafka.sh
@@ -14,5 +15,4 @@ VOLUME ["/kafka"]
 
 ENV KAFKA_HOME /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}
 ADD start-kafka.sh /usr/bin/start-kafka.sh
-ADD broker-list.sh /usr/bin/broker-list.sh
 CMD start-kafka.sh
