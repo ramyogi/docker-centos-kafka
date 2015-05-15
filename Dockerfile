@@ -7,12 +7,8 @@ ENV \
 
 RUN yum -y update && yum install -y \
     curl \
-    docker \
     tar \
     wget
-
-COPY jq /usr/local/bin/jq
-RUN chmod +x /usr/local/bin/jq
 
 COPY download-kafka.sh /tmp/download-kafka.sh
 RUN /tmp/download-kafka.sh
