@@ -35,19 +35,9 @@ The default ```docker-compose.yml``` should be seen as a starting point. By defa
 
 If you don't specify a broker id in your docker-compose file, it will automatically be generated based on the name that docker-compose gives the container. This allows scaling up and down. In this case it is recommended to use the ```--no-recreate``` option of docker-compose to ensure that containers are not re-created and thus keep their names and ids.
 
-
 ##Automatically create topics
 
-If you want to have kafka-docker automatically create topics in Kafka during
-creation, a ```KAFKA_CREATE_TOPICS``` environment variable can be
-added in ```docker-compose.yml```.
-
-Here is an example snippet from ```docker-compose.yml```:
-
-        environment:
-          KAFKA_CREATE_TOPICS: "Topic1:1:3,Topic2:1:1"
-
-```Topic 1``` will have 1 partition and 3 replicas, ```Topic 2``` will have 1 partition and 1 replica.
+Not supported in this fork.
 
 ##Tutorial
 
