@@ -1,7 +1,8 @@
 build : 
 	docker build -t cantireinnovations/centos-kafka .
 
-run :
+bash : build
 	docker run -it cantireinnovations/centos-kafka bash
 
-all : build run
+run :
+    docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -e HOST_IP=$1 -e ZK=$2 -i -t cantireinnovations/centos-kafka /bin/bash
