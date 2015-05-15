@@ -3,3 +3,5 @@ build :
 
 run :
 	docker run -it cantireinnovations/centos-kafka bash
+
+all : build run
