@@ -5,7 +5,10 @@ MAINTAINER Canadian Tire Innovations
 ENV KAFKA_VERSION="0.8.2.1" SCALA_VERSION="2.10"
 
 RUN yum update
-RUN yum install -y curl docker.io tar wget
+RUN yum install -y curl docker tar wget
+
+ADD jq /usr/local/bin/jq
+RUN chmod +x /usr/local/bin/jq
 
 ADD download-kafka.sh /tmp/download-kafka.sh
 RUN /tmp/download-kafka.sh
