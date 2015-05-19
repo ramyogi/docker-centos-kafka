@@ -7,8 +7,7 @@ if [[ -z "$KAFKA_ADVERTISED_PORT" ]]; then
 fi
 
 if [[ -z "$KAFKA_BROKER_ID" ]]; then
-    echo "KAFKA_BROKER_ID not set"
-    exit 2
+    export KAFKA_BROKER_ID=$( expr $( date +%s --utc ) - 1430438400 )
 fi
 
 if [[ -z "$KAFKA_LOG_DIRS" ]]; then
