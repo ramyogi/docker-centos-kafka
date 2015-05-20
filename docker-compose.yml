@@ -14,7 +14,7 @@ kafka1:
     KAFKA_ADVERTISED_PORT: 9092
     KAFKA_BROKER_ID: 1
   volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
+    - /var/kafka/node1:/kafka
 
 kafka2:
   image: cantireinnovations/centos-kafka
@@ -27,7 +27,7 @@ kafka2:
     KAFKA_ADVERTISED_PORT: 9092
     KAFKA_BROKER_ID: 2
   volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
+    - /var/kafka/node2:/kafka
 
 kafka3:
   image: cantireinnovations/centos-kafka
@@ -40,4 +40,4 @@ kafka3:
     KAFKA_ADVERTISED_PORT: 9092
     KAFKA_BROKER_ID: 3
   volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
+    - /var/kafka/node3:/kafka
