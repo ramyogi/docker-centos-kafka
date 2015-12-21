@@ -27,7 +27,7 @@ if [[ -z "$KAFKA_ADVERTISED_PORT" ]]; then
 fi
 
 if [[ -z "$KAFKA_ADVERTISED_HOST_NAME" ]]; then
-    export KAFKA_ADVERTISED_HOST_NAME=$( hostname -I )
+    export KAFKA_ADVERTISED_HOST_NAME=$( hostname -I | awk '{print $1}' )
 fi
 
 if [[ -n "$KAFKA_HEAP_OPTS" ]]; then
