@@ -1,4 +1,4 @@
-DOCKER_IMAGE := cantireinnovations/kafka:0.8.2.1
+DOCKER_IMAGE := cantireinnovations/kafka:0.9.0.0
 MAKEFLAGS += --always-make
 
 build :

@@ -13,8 +13,8 @@ RUN \
 
 ENV \
     JAVA_HOME=/usr/java/latest \
-    JAVA_VERSION=8u45 \
-    JAVA_BUILD_VERSION=b14 \
+    JAVA_VERSION=8u66 \
+    JAVA_BUILD_VERSION=b17 \
     JRE_HOME=/usr/java/latest/jre
 
 RUN \
@@ -30,8 +30,8 @@ RUN \
 # --------------------------------------------------------------------------------------------
 
 ENV \
-    KAFKA_VERSION="0.8.2.1" \
-    SCALA_VERSION="2.10"
+    KAFKA_VERSION="0.9.0.0" \
+    SCALA_VERSION="2.11"
 
 COPY ./scripts/download-kafka.sh /tmp/download-kafka.sh
 RUN \
