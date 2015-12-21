@@ -1,11 +1,8 @@
-build : 
-	docker build -t cantireinnovations/centos-kafka .
+DOCKER_IMAGE := cantireinnovations/kafka:0.8.2.1
+MAKEFLAGS += --always-make
 
-bash : build
-	docker run -it cantireinnovations/centos-kafka bash
+build :
+	docker build -t ${DOCKER_IMAGE} .
 
 push : build
-	docker push cantireinnovations/centos-kafka
-
-run :
-	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -e HOST_IP=$1 -e ZK=$2 -i -t cantireinnovations/centos-kafka /bin/bash
+	docker push ${DOCKER_IMAGE}

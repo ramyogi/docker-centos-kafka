@@ -1,0 +1,17 @@
+kafka:
+  image: "cantireinnovations/kafka:0.8.2.1"
+  ports:
+    - "9092:9092"
+  links: 
+    - "zookeeper:zk"
+  environment:
+    KAFKA_ADVERTISED_PORT: "9092"
+    KAFKA_BROKER_ID: "1"
+  volumes:
+    - "./data/logs/:/data/logs/"
+
+zookeeper:
+  image: "wurstmeister/zookeeper"
+  ports:
+    - "2181:2181"
+
