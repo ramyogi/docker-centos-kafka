@@ -12,15 +12,6 @@ if [[ -z "$KAFKA_BROKER_ID" ]]; then
     exit 2
 fi
 
-if [[ -z "$KAFKA_ADVERTISED_PORT" ]]; then
-    echo "\$KAFKA_ADVERTISED_PORT not set"
-    exit 2
-fi
-
-if [[ -z "$KAFKA_ZOOKEEPER_CONNECT" ]]; then
-    export KAFKA_ZOOKEEPER_CONNECT=$(env | grep ZK.*PORT_2181_TCP= | sed -e 's|.*tcp://||' | paste -sd ,)
-fi
-
 if [[ -z "$KAFKA_ZOOKEEPER_CONNECT" ]]; then
     echo "\$KAFKA_ZOOKEEPER_CONNECT not set"
     exit 2

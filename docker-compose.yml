@@ -3,10 +3,10 @@ kafka:
   ports:
     - "9092:9092"
   links: 
-    - "zookeeper:zk"
+    - "zookeeper:zookeeper"
   environment:
-    KAFKA_ADVERTISED_PORT: "9092"
     KAFKA_BROKER_ID: "1"
+    KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
   volumes:
     - "./data/logs/:/data/logs/"
 
