@@ -2,7 +2,15 @@ FROM centos
 MAINTAINER Canadian Tire Innovations
 
 EXPOSE 9092
-VOLUME /data/logs/
+VOLUME /data/logs
+
+ENV \
+    JAVA_HOME=/usr/java/latest \
+    JAVA_VERSION=8u66 \
+    JAVA_BUILD_VERSION=b17 \
+    JRE_HOME=/usr/java/latest/jre \
+    KAFKA_VERSION="0.9.0.0" \
+    SCALA_VERSION="2.11"
 
 RUN \
     yum -y upgrade \
@@ -10,12 +18,6 @@ RUN \
     && yum -y install curl tar wget
 
 # --------------------------------------------------------------------------------------------
-
-ENV \
-    JAVA_HOME=/usr/java/latest \
-    JAVA_VERSION=8u66 \
-    JAVA_BUILD_VERSION=b17 \
-    JRE_HOME=/usr/java/latest/jre
 
 RUN \
     wget \
@@ -28,10 +30,6 @@ RUN \
     && rm /tmp/jdk-8-linux-x64.rpm
 
 # --------------------------------------------------------------------------------------------
-
-ENV \
-    KAFKA_VERSION="0.9.0.0" \
-    SCALA_VERSION="2.11"
 
 COPY ./scripts/download-kafka.sh /tmp/download-kafka.sh
 RUN \
