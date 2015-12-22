@@ -40,8 +40,6 @@ RUN \
     && rm /tmp/download-kafka.sh \
     && rm /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
 
-VOLUME ["/kafka"]
-
 ENV KAFKA_HOME /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}
 COPY \
     ./scripts/configure-kafka.sh \
